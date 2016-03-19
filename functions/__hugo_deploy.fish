@@ -12,21 +12,13 @@ function __hugo_deploy -d " Deploy script"
   end
 
   if git_is_dirty
-    git add -A; and git commit -m "$HUGO_SOURCE_MSG"; and git push origin master
-    if test 1 -eq $status
-      echo "Failed to push public content" > /dev/stderr
-      return 1
-    end
+    git add -A; and git commit -m "$HUGO_SOURCE_MSG" > /dev/null; and git push origin master --quiet
   end
   
   popd
 
   if git_is_dirty
-    git add -A; and git commit -m "$HUGO_PUBLIC_MSG"; and git push origin source
-    if test 1 -eq $status
-      echo "Failed to push source content" > /dev/stderr
-      return 1
-    end
+    git add -A; and git commit -m "$HUGO_PUBLIC_MSG" > /dev/null; and git push origin source --quiet
   end
 
   return 0
