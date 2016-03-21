@@ -17,7 +17,7 @@ function __hugo_deploy -d " Deploy script"
     end
 
     if git_is_dirty
-      git add -A; and git commit -m "$HUGO_SOURCE_MSG" > /dev/null; and git push origin master --quiet
+      git add -A; and git commit -m "$HUGO_SOURCE_MSG" > /dev/null; and git push origin gh-pages --quiet
     end
   
     popd
