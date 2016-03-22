@@ -17,13 +17,13 @@ function __hugo_deploy -d " Deploy script"
     end
 
     if git_is_dirty
-      git add -A; and git commit -m "$HUGO_SOURCE_MSG" > /dev/null; and git push origin gh-pages --quiet
+      git add -A; and git commit -m "$HUGO_SOURCE_MSG" > /dev/null; and git push -u origin gh-pages --quiet
     end
   
     popd
 
     if git_is_dirty
-      git add -A; and git commit -m "$HUGO_PUBLIC_MSG" > /dev/null; and git push origin source --quiet
+      git add -A; and git commit -m "$HUGO_PUBLIC_MSG" > /dev/null; and git push -u origin master --quiet
     end
 
     return 0
